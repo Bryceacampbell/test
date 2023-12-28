@@ -5,7 +5,7 @@ export default function Home() {
   const [data, setData] = useState(null);
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/test`, {
-      method: "POST",
+      method: "GET",
     })
       .then((res) => res.json())
       .then((data) => setData(data));
