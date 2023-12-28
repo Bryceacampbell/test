@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:build": "docker build -t test .",
+    "docker:run": "docker run -it -p3000:3000 -e --name test"
   },
   "dependencies": {
     "@types/pg": "^8.10.9",
