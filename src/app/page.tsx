@@ -29,9 +29,9 @@ export default function Home() {
 
   return (
     <div>
+      <h1>Performance Metrics</h1>
       {metrics.length ? (
         <>
-          <h1>Performance Metrics</h1>
           {metrics.map((metric, index) => (
             <p key={index}>
               Request {index + 1}: {metric.toFixed(2)} s
