@@ -9,7 +9,11 @@ export async function GET() {
     const [results] = await sequelize.query(
       "SELECT * FROM test.test WHERE study_id='9'"
     );
-    return NextResponse.json(results);
+    return NextResponse.json(results, {
+      headers: {
+        "Cache-Control": "no-cache",
+      },
+    });
   } catch (err) {
     console.error(err);
     return NextResponse.json(
