@@ -2,12 +2,13 @@ import { getSequelize } from "@/sequelize";
 
 export const maxDuration = 300;
 
-export async function GET() {
+export async function POST() {
   try {
     const sequelize = await getSequelize();
     const [results] = await sequelize.query("SELECT * FROM test.test");
     return Response.json(results, {
       headers: {
+        Allow: "POST",
         "Cache-Control": "no-cache",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST",
