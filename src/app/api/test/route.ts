@@ -2,6 +2,7 @@ import { getSequelize } from "@/sequelize";
 import { NextResponse } from "next/server";
 
 export const maxDuration = 300;
+export const fetchCache = "force-no-store";
 
 export async function GET() {
   try {
