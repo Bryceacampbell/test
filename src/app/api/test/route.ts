@@ -1,6 +1,6 @@
 import { getSequelize } from "@/sequelize";
 
-export const maxDuration = 600;
+export const maxDuration = 300;
 
 export async function POST() {
   const sequelize = await getSequelize();
