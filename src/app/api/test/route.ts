@@ -1,23 +1,24 @@
 import { getSequelize } from "@/sequelize";
+import { NextResponse } from "next/server";
 
 export const maxDuration = 300;
 
-export async function GET() {
+export async function POST() {
   try {
     const sequelize = await getSequelize();
     const [results] = await sequelize.query("SELECT * FROM test.test");
-    return Response.json(results, {
+    return NextResponse.json(results, {
+      status: 200,
       headers: {
-        Allow: "*",
-        "Cache-Control": "no-cache",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
       },
     });
   } catch (err) {
     console.error(err);
-    return Response.json(
+    return NextResponse.json(
       { error: "An error occurred" },
       {
         status: 500,
