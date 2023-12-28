@@ -12,6 +12,10 @@ export default function Home() {
         const start = performance.now();
         await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/test`, {
           method: "GET",
+          cache: "no-store",
+          next: {
+            revalidate: 0,
+          },
         });
         const end = performance.now();
         return (end - start) / 1000;

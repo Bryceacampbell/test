@@ -2,7 +2,6 @@ import { getSequelize } from "@/sequelize";
 import { NextResponse } from "next/server";
 
 export const maxDuration = 300;
-export const fetchCache = "force-no-store";
 
 export async function GET() {
   try {
@@ -12,7 +11,7 @@ export async function GET() {
     );
     return NextResponse.json(results, {
       headers: {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "no-store, max-age=0",
       },
     });
   } catch (err) {
