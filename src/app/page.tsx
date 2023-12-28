@@ -11,10 +11,9 @@ export default function Home() {
       }).map(async (_, i) => {
         const start = performance.now();
         await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/test`, {
-          method: "GET",
-          cache: "no-store",
-          next: {
-            revalidate: 0,
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
         });
         const end = performance.now();

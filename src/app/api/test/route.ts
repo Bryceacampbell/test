@@ -2,23 +2,18 @@ import { getSequelize } from "@/sequelize";
 import { NextResponse } from "next/server";
 
 export const maxDuration = 300;
-export const fetchCache = "force-no-store";
 
-export async function GET() {
+export async function POST() {
   try {
     const sequelize = await getSequelize();
     const [results] = await sequelize.query(
       "SELECT * FROM test.test WHERE study_id='9'"
     );
-    return NextResponse.json(results, {
-      headers: {
-        "Cache-Control": "no-store, max-age=0",
-      },
-    });
-  } catch (err) {
-    console.error(err);
+    return NextResponse.json(results);
+  } catch (error) {
+    console.error(error);
     return NextResponse.json(
-      { error: "An error occurred" },
+      { error },
       {
         status: 500,
       }
