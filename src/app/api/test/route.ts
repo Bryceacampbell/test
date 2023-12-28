@@ -2,7 +2,7 @@ import { getSequelize } from "@/sequelize";
 
 export const maxDuration = 300;
 
-export async function POST() {
+export async function GET() {
   try {
     const sequelize = await getSequelize();
     const [results] = await sequelize.query("SELECT * FROM test.test");
