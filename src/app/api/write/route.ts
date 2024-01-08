@@ -1,9 +1,9 @@
 import { getSequelize } from "@/sequelize";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export const maxDuration = 300;
 
-export async function POST(req: NextResponse) {
+export async function POST(req: NextRequest) {
   if (process.env.NEXT_PUBLIC_APP_INSTANCE === "China") {
     return NextResponse.json(
       { error: "Writing to the DB is not allowed via the China instance" },
