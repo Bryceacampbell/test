@@ -54,7 +54,7 @@ export default function Home() {
       body: JSON.stringify({ studyId: "1" }),
     });
     const result = await res.json();
-    setData(result[0].study[0].data);
+    setData(result[0].study.data);
   };
 
   return (

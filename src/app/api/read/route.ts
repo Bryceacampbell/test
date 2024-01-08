@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     const { studyId } = await req.json();
     const sequelize = await getSequelize();
     const [results] = await sequelize.query(
-      `SELECT * FROM test.test WHERE study_id='${studyId}'`
+      `SELECT * FROM public.test WHERE study_id='${studyId}'`
     );
     return NextResponse.json(results);
   } catch (error) {

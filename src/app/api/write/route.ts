@@ -16,8 +16,8 @@ export async function POST(req: NextRequest) {
     const { data } = await req.json();
     const sequelize = await getSequelize();
     const [results] = await sequelize.query(
-      `UPDATE test.test 
-       SET study = ARRAY['{"data": "${data}"}']::json[]
+      `UPDATE public.test 
+       SET study = '{"data": "${data}"}'
        WHERE study_id = '1'
        RETURNING *;`
     );
