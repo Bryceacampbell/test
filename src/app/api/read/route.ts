@@ -10,6 +10,11 @@ export async function POST(req: NextRequest) {
     const [results] = await sequelize.query(
       `SELECT * FROM public.test WHERE study_id='${studyId}'`
     );
+    console.log("The results are: ");
+    console.log(results);
+    console.log("The type of results is: ");
+    console.log(typeof results);
+    console.log("The return statement is now running.")
     return NextResponse.json(results);
   } catch (error) {
     console.error(error);
