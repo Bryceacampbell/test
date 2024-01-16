@@ -71,11 +71,11 @@ export default function Home() {
           {metrics.length ? (
             <>
               {metrics.map((metric, index) => (
-                <p className={styles.body} key={index}>
+                <p className={styles.body} key={index} data-testid={`request-metric-${index}`}>
                   Request {index + 1}: {metric.toFixed(2)} s
                 </p>
               ))}
-              <p className={styles.body}>
+              <p className={styles.body} data-testid="request-metric-average">
                 Average Time:{" "}
                 {(metrics.reduce((a, b) => a + b, 0) / metrics.length).toFixed(
                   2
@@ -96,17 +96,19 @@ export default function Home() {
               value={input}
               onChange={onInputChange}
               disabled={isChinaInstance}
+              data-testid="db-input"
             />
             <button
               disabled={isChinaInstance || !Boolean(input.length)}
               onClick={onWrite}
+              data-testid="db-write"
             >
               Write
             </button>
           </div>
           <div className={styles.inputContainer}>
-            <button onClick={onRead}>Read</button>
-            {data && <p className={styles.body}>{data}</p>}
+            <button onClick={onRead data-testid="db-read">Read</button>
+            {data && <p className={styles.body} data-testid="db-read-metric">{data}</p>}
           </div>
         </div>
       </div>
