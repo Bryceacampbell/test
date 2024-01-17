@@ -107,7 +107,7 @@ export default function Home() {
             </button>
           </div>
           <div className={styles.inputContainer}>
-            <button onClick={onRead data-testid="db-read">Read</button>
+            <button onClick={onRead} data-testid="db-read">Read</button>
             {data && <p className={styles.body} data-testid="db-read-metric">{data}</p>}
           </div>
         </div>
