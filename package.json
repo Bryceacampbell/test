@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "postgraphile": "postgraphile -c postgres://postgres:P0stGr3s^2@crownlink-data-replication.dev.onedigitaljsr.com:5432/postgres?ssl=true&sslmode=require -s public --watch --enhance-graphiql",
     "docker:build": "docker build -t test .",
     "docker:run": "docker run -it -p3000:3000 -e --name test"
   },
@@ -15,6 +16,7 @@
     "next": "^14.0.4",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
+    "postgraphile": "^4.13.0",
     "react": "^18",
     "react-dom": "^18",
     "sequelize": "^6.35.2"

@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:lts-alpine3.19
 
 # Set working directory
 WORKDIR /app
@@ -15,6 +15,9 @@ COPY . .
 
 # Build application
 RUN npm run build
+
+# Run postgraphile
+RUN npm run postgraphile
 
 # Start the application
 CMD ["npm", "start"]
