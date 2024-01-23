@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && 'postgraphile -c postgres://postgres:P0stGr3s^2@crownlink-data-replication.dev.onedigitaljsr.com:5432/postgres?ssl=true&sslmode=require -s public --watch --enhance-graphiql'",
+    "build": "next build && postgraphile -c postgres://postgres:P0stGr3s^2@crownlink-data-replication.dev.onedigitaljsr.com:5432/postgres?ssl=true&sslmode=require -s public --watch --enhance-graphiql",
     "start": "next start",
     "lint": "next lint",
     "postgraphile": "postgraphile -c postgres://postgres:P0stGr3s^2@crownlink-data-replication.dev.onedigitaljsr.com:5432/postgres?ssl=true&sslmode=require -s public --watch --enhance-graphiql",
